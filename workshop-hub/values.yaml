@@ -1,9 +1,5 @@
 jupyterhub:
-  hub:
-    cookieSecret: "53e42806ed0f5a5272fbb5fe42f3d83ec7295aa5f2fae2aef168e87eb317488e"
-
   proxy:
-    secretToken: "8ff0e8d2ea2a31cdfaaefa68389d993af94a30f56bd1a1e0e6498c9bbaa21be4"
     service:
       type: NodePort
 
