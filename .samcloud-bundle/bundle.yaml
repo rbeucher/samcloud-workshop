@@ -1,0 +1,56 @@
+name: "Workshop Hub"
+description: "A JupyterHub based workshop"
+
+chart:
+  name: "sam/workshop-hub"
+  # directory: "../workshop-hub"
+
+services:
+  - name: "proxy-public"
+    port: 80
+
+config:
+  - key: "jupyterhub.singleuser.image.name"
+    label: "Singleuser name"
+    description: "Name of the docker image for the participant environment."
+
+  - key: "jupyterhub.singleuser.image.tag"
+    label: "Singleuser tag"
+    description: "Tag of the docker image for the participant environment."
+
+  - key: "jupyterhub.auth.admin.users"
+    label: "Admin users"
+    description: "Comma separated list of GitHub user name that will be admins
+    for the workshop."
+
+  - key: "jupyterhub.auth.github.clientId"
+    label: "GitHub OAuth client ID"
+    description: "ClientId for the GitHub application used for authentication"
+
+  - key: "jupyterhub.auth.github.clientSecret"
+    label: "GitHub OAuth client secret"
+    description: "Client secret value for the GitHub application used for
+    authentication."
+
+  - key: "jupyterhub.auth.github.callbackUrl"
+    label: "GitHub OAuth callback URL"
+    description: "Callback URL for the GitHub application used for
+    authentication."
+    default: "{{ deployment_url }}hub/oauth_callback"
+
+  - key: "jupyterhub.hub.cookieSecret"
+    label: "Secret key for jupyterhub"
+    description: "Randomly generated 32 byte hex string. Default value is
+    auto-generated, or run 'openssl rand -hex 32' (or equivalent) to generate a new value."
+    default: "{{ SAMCLOUDUTILS.hexKey() }}"
+
+  - key: "jupyterhub.proxy.secretToken"
+    label: "Secret key for jupyterhub proxy"
+    description: "Random 32 byte hex string. Default value is auto-generated, or
+    run 'openssl rand -hex 32' (or equivalent) to generate a new one."
+    default: "{{ SAMCLOUDUTILS.hexKey() }}"
+
+  - key: "jupyterhub.hub.baseUrl"
+    label: "Base URL for jupyterhub"
+    description: "Auto-generated. DO NOT CHANGE!"
+    default: "{{ base_url }}"
