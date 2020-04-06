@@ -2,7 +2,8 @@ name: "Workshop Hub"
 description: "A JupyterHub based workshop"
 
 chart:
-  name: "sam/workshop-hub"
+  name: "workshop-hub"
+  repo: "https://cgmaven.it.csiro.au/nexus/repository/sam-cloud-charts/"
   # directory: "../workshop-hub"
 
 services:
