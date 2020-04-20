@@ -27,7 +27,7 @@ config:
   - key: "jupyterhub.auth.whitelist.users"
     label: "Users"
     is_list: true
-    description: "Comma separated list of GitHub user name that will be able to access the workshop."
+    description: "Comma separated list of GitHub user names with access. BLANK MEANS ANYONE CAN ACCESS!"
     optional: true
 
   - key: "jupyterhub.auth.github.clientId"
