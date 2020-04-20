@@ -21,8 +21,13 @@ config:
 
   - key: "jupyterhub.auth.admin.users"
     label: "Admin users"
-    description: "Comma separated list of GitHub user name that will be admins
-    for the workshop."
+    is_list: true
+    description: "Comma separated list of GitHub user name that will be admins for the workshop."
+
+  - key: "jupyterhub.auth.whitelist.users"
+    label: "Users"
+    is_list: true
+    description: "Comma separated list of GitHub user name that will be able to access the workshop."
 
   - key: "jupyterhub.auth.github.clientId"
     label: "GitHub OAuth client ID"
@@ -30,25 +35,21 @@ config:
 
   - key: "jupyterhub.auth.github.clientSecret"
     label: "GitHub OAuth client secret"
-    description: "Client secret value for the GitHub application used for
-    authentication."
+    description: "Client secret value for the GitHub application used for authentication."
 
   - key: "jupyterhub.auth.github.callbackUrl"
     label: "GitHub OAuth callback URL"
-    description: "Callback URL for the GitHub application used for
-    authentication."
+    description: "Callback URL for the GitHub application used for authentication."
     default: "{{ deployment_url }}hub/oauth_callback"
 
   - key: "jupyterhub.hub.cookieSecret"
     label: "Secret key for jupyterhub"
-    description: "Randomly generated 32 byte hex string. Default value is
-    auto-generated, or run 'openssl rand -hex 32' (or equivalent) to generate a new value."
+    description: "Randomly generated 32 byte hex string. Default value is auto-generated, or run 'openssl rand -hex 32' (or equivalent) to generate a new value."
     default: "{{ SAMCLOUDUTILS.hexKey() }}"
 
   - key: "jupyterhub.proxy.secretToken"
     label: "Secret key for jupyterhub proxy"
-    description: "Random 32 byte hex string. Default value is auto-generated, or
-    run 'openssl rand -hex 32' (or equivalent) to generate a new one."
+    description: "Random 32 byte hex string. Default value is auto-generated, or run 'openssl rand -hex 32' (or equivalent) to generate a new one."
     default: "{{ SAMCLOUDUTILS.hexKey() }}"
 
   - key: "jupyterhub.hub.baseUrl"
