@@ -28,6 +28,7 @@ config:
     label: "Users"
     is_list: true
     description: "Comma separated list of GitHub user name that will be able to access the workshop."
+    optional: true
 
   - key: "jupyterhub.auth.github.clientId"
     label: "GitHub OAuth client ID"
