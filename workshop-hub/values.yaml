@@ -10,8 +10,8 @@ jupyterhub:
       limit: 4G
       guarantee: 1G
     cpu:
-      limit: 8
-      guarantee: 1
+      limit: 2
+      guarantee: 0.1
   #   extraEnv:
   #     DEFAULT_LANDING: /
       # DEFAULT_LANDING: /files/landing_pages/_site/Content/index.html
